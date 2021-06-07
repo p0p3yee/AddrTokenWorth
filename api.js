@@ -31,7 +31,7 @@ const AddressWorthChecker = (web3s) => {
       const out = []
       const errAddr = []
   
-      if (totalTokens != allTokensAddr.length + 1) {
+      if (totalTokens > allTokensAddr.length + 1) {
         throw new Error("Incorrect token addresses length")
       }
 
