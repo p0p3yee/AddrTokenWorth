@@ -54,7 +54,7 @@ const AddressWorthChecker = (web3s) => {
               symbol: price.fromToken.symbol,
               tokenAddr: tokenAddr,
               amt: amt.div(utils.toBN("1".padEnd(decimals + 1, "0"))),
-              worth: utils.toBN(price.toTokenAmount).div(utils.toBN("1".padEnd(chain == 1 ? 6 : 18 + 1, "0")))
+              worth: utils.toBN(price.toTokenAmount).div(utils.toBN("1".padEnd((chain == 1 ? 6 : 18) + 1, "0")))
             }
           )
         } catch(e) {
