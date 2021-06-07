@@ -24,7 +24,7 @@ const web3s = {
         return
       }
       const { out } = data
-      out.forEach(v => {
+      out.sort((a, b) => parseInt(a.worth.toString()) - parseInt(b.worth.toString())).forEach(v => {
         console.log(`${v.amt.toString()} ${v.symbol}: $${v.worth.toString()}`)
       })
       console.log("========\n")
