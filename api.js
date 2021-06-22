@@ -6,7 +6,7 @@ const addresses = require("./addresses")
 
 const AddressWorthChecker = (web3s) => {
 
-  const tokenListURL = (chain, addr) => `https://${chain == chains.BSC ? "bscscan.com" : "etherscan.io"}/tokenholdingsHandler.aspx?=&a=${addr}&q=&p=1&f=0&h=0&sort=total_price_usd&order=desc&fav=&langMsg=A%20total%20of%20XX%20tokenSS%20found&langFilter=Filtered%20by%20XX&langFirst=First&langPage=Page%20X%20of%20Y&langLast=Last&ps=200`
+  const tokenListURL = (chain, addr) => `https://${chain == chains.BSC ? "bscscan.com" : "etherscan.io"}/tokenholdingsHandler.aspx?=&a=${addr}&q=&p=1&f=0&h=0&sort=total_price_usd&order=desc&fav=&langMsg=A%20total%20of%20XX%20tokenSS%20found&langFilter=Filtered%20by%20XX&langFirst=First&langPage=Page%20X%20of%20Y&langLast=Last&ps=500`
 
   const get1InchPrice = async (chain, from, to, amt) => {
     try {
@@ -32,7 +32,7 @@ const AddressWorthChecker = (web3s) => {
       const errAddr = []
   
       if (totalTokens > allTokensAddr.length + 1) {
-        throw new Error("Incorrect token addresses length")
+        throw new Error("Incorrect token addresses length: " + "Total: " + totalTokens + ", Got: " + allTokensAddr.length)
       }
 
       const utils = web3s[chain].utils
